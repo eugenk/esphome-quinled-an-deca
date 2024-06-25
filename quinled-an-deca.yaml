@@ -1,0 +1,149 @@
+substitutions:
+  name: "quinled_an_deca"
+  friendly_name: "QuinLED-An-Deca"
+  project_name: eugenk.quinled-an-deca
+  project_version: "1.0.0"
+  log_level: "ERROR"
+  hidden_ssid: "false"
+  entity_name_prefix: ""
+  channel_name_infix: "_channel_"
+
+dashboard_import:
+  package_import_url: github://eugenk/esphome-quinled-an-deca/quinled-an-deca.yaml@main
+  import_full_config: false
+
+captive_portal:
+
+wifi:
+  fast_connect: ${hidden_ssid}
+
+api:
+
+ota:
+  - platform: esphome
+
+improv_serial:
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  # name_add_mac_suffix: true
+  project:
+    name: ${project_name}
+    version: ${project_version}
+  platform: ESP32
+  board: mhetesp32devkit
+
+web_server:
+  port: 80
+
+logger:
+  level: ${log_level}
+
+output:
+  - platform: ledc
+    pin: 16
+    frequency: 19531Hz
+    id: LED_gpio_16
+  - platform: ledc
+    pin: 17
+    frequency: 19531Hz
+    id: LED_gpio_17
+  - platform: ledc
+    pin: 18
+    frequency: 19531Hz
+    id: LED_gpio_18
+  - platform: ledc
+    pin: 19
+    frequency: 19531Hz
+    id: LED_gpio_19
+  - platform: ledc
+    pin: 21
+    frequency: 19531Hz
+    id: LED_gpio_21
+  - platform: ledc
+    pin: 25
+    frequency: 19531Hz
+    id: LED_gpio_25
+  - platform: ledc
+    pin: 26
+    frequency: 19531Hz
+    id: LED_gpio_26
+  - platform: ledc
+    pin: 27
+    frequency: 19531Hz
+    id: LED_gpio_27
+  - platform: ledc
+    pin: 14
+    frequency: 19531Hz
+    id: LED_gpio_14
+  - platform: ledc
+    pin: 12
+    frequency: 19531Hz
+    id: LED_gpio_12
+
+light:
+  - platform: cwww
+    name: ${entity_name_prefix}${channel_name_infix}1
+    cold_white: LED_gpio_16
+    warm_white: LED_gpio_17
+    cold_white_color_temperature: 153 mireds
+    warm_white_color_temperature: 417 mireds
+    default_transition_length: 1s
+  - platform: cwww
+    name: ${entity_name_prefix}${channel_name_infix}2
+    cold_white: LED_gpio_18
+    warm_white: LED_gpio_19
+    cold_white_color_temperature: 153 mireds
+    warm_white_color_temperature: 417 mireds
+    default_transition_length: 1s
+  - platform: cwww
+    name: ${entity_name_prefix}${channel_name_infix}3
+    cold_white: LED_gpio_21
+    warm_white: LED_gpio_25
+    cold_white_color_temperature: 153 mireds
+    warm_white_color_temperature: 417 mireds
+    default_transition_length: 1s
+  - platform: cwww
+    name: ${entity_name_prefix}${channel_name_infix}4
+    cold_white: LED_gpio_26
+    warm_white: LED_gpio_27
+    cold_white_color_temperature: 153 mireds
+    warm_white_color_temperature: 417 mireds
+    default_transition_length: 1s
+  - platform: cwww
+    name: ${entity_name_prefix}${channel_name_infix}5
+    cold_white: LED_gpio_14
+    warm_white: LED_gpio_12
+    cold_white_color_temperature: 153 mireds
+    warm_white_color_temperature: 417 mireds
+    default_transition_length: 1s
+
+one_wire:
+  - pin: 32
+    platform: gpio
+    id: temp
+
+sensor:
+  - platform: dallas_temp
+    name: "${entity_name_prefix}Temperature"
+    one_wire_id: temp
+  - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
+    name: "${entity_name_prefix}WiFi Signal dB"
+    id: wifi_signal_db
+    update_interval: 60s
+    entity_category: "diagnostic"
+  - platform: copy # Reports the WiFi signal strength in %
+    source_id: wifi_signal_db
+    name: "${entity_name_prefix}WiFi Signal Percent"
+    filters:
+      - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
+    unit_of_measurement: "Signal %"
+    entity_category: "diagnostic"
+    device_class: ""
+
+switch:
+  - platform: gpio
+    name: "${entity_name_prefix}Onboard LED"
+    pin: 2
+    inverted: True
