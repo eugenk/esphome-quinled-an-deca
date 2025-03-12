@@ -2,7 +2,7 @@ substitutions:
   name: "quinled_an_deca"
   friendly_name: "QuinLED-An-Deca"
   project_name: eugenk.quinled-an-deca
-  project_version: "1.0.0"
+  project_version: "1.0.1"
   log_level: "ERROR"
   hidden_ssid: "false"
   entity_name_prefix: ""
@@ -31,7 +31,8 @@ esphome:
   project:
     name: ${project_name}
     version: ${project_version}
-  platform: ESP32
+
+esp32:
   board: mhetesp32devkit
 
 web_server:
