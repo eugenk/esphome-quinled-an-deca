@@ -5,7 +5,7 @@ substitutions:
   project_version: "1.0.1"
   log_level: "ERROR"
   hidden_ssid: "false"
-  entity_name_prefix: ""
+  entity_name_prefix: "${name}"
   channel_name_infix: "_channel_"
 
 dashboard_import:
@@ -21,6 +21,7 @@ api:
 
 ota:
   - platform: esphome
+  - platform: web_server
 
 improv_serial:
 
