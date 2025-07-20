@@ -6,7 +6,7 @@ substitutions:
   log_level: "ERROR"
   hidden_ssid: "false"
   entity_name_prefix: ""
-  channel_name_infix: "_channel_"
+  channel_name_infix: "Channel"
 
 dashboard_import:
   package_import_url: github://eugenk/esphome-quinled-an-deca/quinled-an-deca.yaml@main
@@ -86,35 +86,35 @@ output:
 
 light:
   - platform: cwww
-    name: ${entity_name_prefix}${channel_name_infix}1
+    name: ${entity_name_prefix}${channel_name_infix} 1
     cold_white: LED_gpio_16
     warm_white: LED_gpio_17
     cold_white_color_temperature: 153 mireds
     warm_white_color_temperature: 417 mireds
     default_transition_length: 1s
   - platform: cwww
-    name: ${entity_name_prefix}${channel_name_infix}2
+    name: ${entity_name_prefix}${channel_name_infix} 2
     cold_white: LED_gpio_18
     warm_white: LED_gpio_19
     cold_white_color_temperature: 153 mireds
     warm_white_color_temperature: 417 mireds
     default_transition_length: 1s
   - platform: cwww
-    name: ${entity_name_prefix}${channel_name_infix}3
+    name: ${entity_name_prefix}${channel_name_infix} 3
     cold_white: LED_gpio_21
     warm_white: LED_gpio_25
     cold_white_color_temperature: 153 mireds
     warm_white_color_temperature: 417 mireds
     default_transition_length: 1s
   - platform: cwww
-    name: ${entity_name_prefix}${channel_name_infix}4
+    name: ${entity_name_prefix}${channel_name_infix} 4
     cold_white: LED_gpio_26
     warm_white: LED_gpio_27
     cold_white_color_temperature: 153 mireds
     warm_white_color_temperature: 417 mireds
     default_transition_length: 1s
   - platform: cwww
-    name: ${entity_name_prefix}${channel_name_infix}5
+    name: ${entity_name_prefix}${channel_name_infix} 5
     cold_white: LED_gpio_14
     warm_white: LED_gpio_12
     cold_white_color_temperature: 153 mireds
