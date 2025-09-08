@@ -2,7 +2,7 @@ substitutions:
   name: "quinled_an_deca"
   friendly_name: "QuinLED-An-Deca"
   project_name: eugenk.quinled-an-deca
-  project_version: "1.0.1"
+  project_version: "1.0.5"
   log_level: "ERROR"
   hidden_ssid: "false"
   entity_name_prefix: ""
@@ -16,6 +16,7 @@ captive_portal:
 
 wifi:
   fast_connect: ${hidden_ssid}
+  power_save_mode: none
 
 api:
 
@@ -38,6 +39,7 @@ esp32:
 
 web_server:
   port: 80
+  version: 3
 
 logger:
   level: ${log_level}
