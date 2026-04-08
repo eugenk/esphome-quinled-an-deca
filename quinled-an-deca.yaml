@@ -2,7 +2,7 @@ substitutions:
   name: "quinled_an_deca"
   friendly_name: "QuinLED-An-Deca"
   project_name: eugenk.quinled-an-deca
-  project_version: "1.0.5"
+  project_version: "2.0.0"
   log_level: "ERROR"
   hidden_ssid: "false"
   entity_name_prefix: ""
@@ -91,36 +91,36 @@ light:
     name: ${entity_name_prefix}${channel_name_infix} 1
     cold_white: LED_gpio_16
     warm_white: LED_gpio_17
-    cold_white_color_temperature: 153 mireds
-    warm_white_color_temperature: 417 mireds
+    cold_white_color_temperature: 6536 K
+    warm_white_color_temperature: 2398 K
     default_transition_length: 1s
   - platform: cwww
     name: ${entity_name_prefix}${channel_name_infix} 2
     cold_white: LED_gpio_18
     warm_white: LED_gpio_19
-    cold_white_color_temperature: 153 mireds
-    warm_white_color_temperature: 417 mireds
+    cold_white_color_temperature: 6536 K
+    warm_white_color_temperature: 2398 K
     default_transition_length: 1s
   - platform: cwww
     name: ${entity_name_prefix}${channel_name_infix} 3
     cold_white: LED_gpio_21
     warm_white: LED_gpio_25
-    cold_white_color_temperature: 153 mireds
-    warm_white_color_temperature: 417 mireds
+    cold_white_color_temperature: 6536 K
+    warm_white_color_temperature: 2398 K
     default_transition_length: 1s
   - platform: cwww
     name: ${entity_name_prefix}${channel_name_infix} 4
     cold_white: LED_gpio_26
     warm_white: LED_gpio_27
-    cold_white_color_temperature: 153 mireds
-    warm_white_color_temperature: 417 mireds
+    cold_white_color_temperature: 6536 K
+    warm_white_color_temperature: 2398 K
     default_transition_length: 1s
   - platform: cwww
     name: ${entity_name_prefix}${channel_name_infix} 5
     cold_white: LED_gpio_14
     warm_white: LED_gpio_12
-    cold_white_color_temperature: 153 mireds
-    warm_white_color_temperature: 417 mireds
+    cold_white_color_temperature: 6536 K
+    warm_white_color_temperature: 2398 K
     default_transition_length: 1s
 
 one_wire:
